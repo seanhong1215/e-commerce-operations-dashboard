@@ -2,6 +2,7 @@
   "source": "test-results\\demo-complete-commerce-operations-journey-demo-demo\\video.webm",
   "video": "artifacts\\commerce-os-interview-demo.mp4",
   "poster": "artifacts\\commerce-os-interview-demo-poster.jpg",
+  "preview": "artifacts\\commerce-os-interview-demo-preview.gif",
   "durationSeconds": 37.27,
   "codec": "h264",
   "resolution": "1920x1080",

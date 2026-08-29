@@ -11,6 +11,7 @@ const resultsDir = path.join(workspace, 'test-results')
 const outputDir = path.join(workspace, 'artifacts')
 const outputVideo = path.join(outputDir, 'commerce-os-interview-demo.mp4')
 const outputPoster = path.join(outputDir, 'commerce-os-interview-demo-poster.jpg')
+const outputPreview = path.join(outputDir, 'commerce-os-interview-demo-preview.gif')
 const outputMetadata = path.join(outputDir, 'commerce-os-interview-demo.json')
 const publicMediaDir = path.join(workspace, 'public', 'media')
 
@@ -79,6 +80,15 @@ await run(ffmpegPath, [
   outputPoster,
 ])
 
+await run(ffmpegPath, [
+  '-y',
+  '-i', outputVideo,
+  '-filter_complex',
+  '[0:v]fps=6,scale=640:-1:flags=lanczos,split[preview][palette_source];[palette_source]palettegen=max_colors=96:stats_mode=diff[palette];[preview][palette]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle',
+  '-loop', '0',
+  outputPreview,
+])
+
 const probe = await run(ffprobePath, [
   '-v', 'error',
   '-show_entries', 'format=duration,size:stream=codec_name,width,height,avg_frame_rate',
@@ -99,6 +109,7 @@ const summary = {
   source: path.relative(workspace, inputVideo),
   video: path.relative(workspace, outputVideo),
   poster: path.relative(workspace, outputPoster),
+  preview: path.relative(workspace, outputPreview),
   durationSeconds: Number(duration.toFixed(2)),
   codec: stream.codec_name,
   resolution: `${stream.width}x${stream.height}`,
@@ -110,5 +121,6 @@ await writeFile(outputMetadata, `${JSON.stringify(summary, null, 2)}\n`, 'utf8')
 await mkdir(publicMediaDir, { recursive: true })
 await copyFile(outputVideo, path.join(publicMediaDir, path.basename(outputVideo)))
 await copyFile(outputPoster, path.join(publicMediaDir, path.basename(outputPoster)))
+await copyFile(outputPreview, path.join(publicMediaDir, path.basename(outputPreview)))
 await copyFile(outputMetadata, path.join(publicMediaDir, path.basename(outputMetadata)))
 console.log(JSON.stringify(summary, null, 2))

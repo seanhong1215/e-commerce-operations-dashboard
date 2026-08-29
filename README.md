@@ -2,9 +2,11 @@
 
 一個為前端工程師面試打造的完整 Vue 3 電商後台作品。以真實營運流程為核心，涵蓋商品、SKU、庫存、訂單出貨、會員分群、促銷活動與營運數據，所有操作會透過 IndexedDB 保存在瀏覽器中。
 
-## 45 秒完整流程影片
+## 37 秒完整流程影片
 
-[![CommerceOS 面試展示影片](./public/media/commerce-os-interview-demo-poster.jpg)](./public/media/commerce-os-interview-demo.mp4)
+[![CommerceOS 完整流程動態預覽](./public/media/commerce-os-interview-demo-preview.gif)](./public/media/commerce-os-interview-demo.mp4)
+
+上方為完整使用者流程的循環動態預覽；點擊動畫可播放或下載 1080p MP4。
 
 - 片長：37.27 秒
 - 規格：1920 × 1080、H.264、30fps
