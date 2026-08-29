@@ -1,0 +1,11 @@
+{
+  "source": "test-results\\demo-complete-commerce-operations-journey-demo-demo\\video.webm",
+  "video": "artifacts\\commerce-os-interview-demo.mp4",
+  "poster": "artifacts\\commerce-os-interview-demo-poster.jpg",
+  "durationSeconds": 37.27,
+  "codec": "h264",
+  "resolution": "1920x1080",
+  "frameRate": "30/1",
+  "sizeBytes": 3490657,
+  "generatedAt": "2026-08-29T01:05:30.418Z"
+}
