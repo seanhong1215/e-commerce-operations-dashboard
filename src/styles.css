@@ -1,0 +1,5 @@
+:root { font-family: Inter, "Noto Sans TC", "Microsoft JhengHei", sans-serif; color: #17211b; background: #f4f6f3; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html, body, #app { min-height: 100%; margin: 0; }
+body { min-width: 320px; }
+button, input, textarea, select { font: inherit; }
